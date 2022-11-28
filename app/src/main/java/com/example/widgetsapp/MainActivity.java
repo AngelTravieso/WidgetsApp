@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     TimePicker timePicker;
     Button btn2;
+    Button btn3;
     Button btn;
 
     @Override
@@ -89,6 +90,18 @@ public class MainActivity extends AppCompatActivity {
                 DialogFragment timePickerFrag = new TimePickerFragment();
 
                 timePickerFrag.show(getSupportFragmentManager(), "Pick Time:");
+            }
+        });
+
+
+        // Date Picker
+        btn3 = findViewById(R.id.button3);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment datePickerFrag = new DatePickerFragment();
+
+                datePickerFrag.show(getSupportFragmentManager(), "Pick A Date");
             }
         });
 
