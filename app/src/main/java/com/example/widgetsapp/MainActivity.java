@@ -7,13 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     // declaring widgets
     CheckBox box1, box2;
-    RadioButton radioButton1, radioButton2;
+    RadioGroup radioGroup;
     Button btn;
 
     @Override
@@ -27,8 +28,19 @@ public class MainActivity extends AppCompatActivity {
         box1 = findViewById(R.id.checkbox1);
         box2 = findViewById(R.id.checkbox2);
 
+        // Radio Group
+        radioGroup = findViewById(R.id.radioGroup);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // here we are getting the radio button from our group
+                RadioButton radioButton = findViewById(checkedId);
+                Toast.makeText(MainActivity.this, "Selected: " + radioButton.getText(), Toast.LENGTH_LONG).show();
+            }
+        });
+
         // Radio button
-        radioButton1 = findViewById(R.id.radioButton);
+ /*       radioButton1 = findViewById(R.id.radioButton);
         radioButton2 = findViewById(R.id.radioButton2);
 
         // tap of the radio button
@@ -44,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Without Delivery option selected", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
         // Button
         btn = findViewById(R.id.btn);
