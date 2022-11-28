@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox box1, box2;
     RadioGroup radioGroup;
     Spinner spinner;
+    ProgressBar progressBar;
     TimePicker timePicker;
     Button btn2;
     Button btn3;
@@ -106,6 +108,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        // Progress bar
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        // progressBar.setProgress(75); // percentage
+        // progressBar.incrementProgressBy();
+
+
 
         // Radio button
  /*       radioButton1 = findViewById(R.id.radioButton);
@@ -135,9 +143,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // getting selected time
-                String currentTime = "Time: " + timePicker.getCurrentHour() + " : " + timePicker.getCurrentMinute();
+         /*       String currentTime = "Time: " + timePicker.getCurrentHour() + " : " + timePicker.getCurrentMinute();
 
-                Toast.makeText(getApplicationContext(), String.format("%s", currentTime), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), String.format("%s", currentTime), Toast.LENGTH_SHORT).show();*/
+
+                // Increase progress by10%
+                progressBar.incrementProgressBy(10);
 
                 if(!box1.isChecked() && !box2.isChecked()) {
                     Toast.makeText(MainActivity.this, "Please select a topping", Toast.LENGTH_SHORT).show();
