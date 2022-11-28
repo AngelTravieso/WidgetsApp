@@ -69,4 +69,14 @@
             app:layout_constraintStart_toEndOf="@+id/radioButton" />
     </RadioGroup>
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toStartOf="@+id/checkbox2"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox2" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

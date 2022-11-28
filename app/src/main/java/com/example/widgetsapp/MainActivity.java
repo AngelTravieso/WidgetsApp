@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     // declaring widgets
     CheckBox box1, box2;
     RadioGroup radioGroup;
+    Spinner spinner;
     Button btn;
 
     @Override
@@ -36,6 +40,35 @@ public class MainActivity extends AppCompatActivity {
                 // here we are getting the radio button from our group
                 RadioButton radioButton = findViewById(checkedId);
                 Toast.makeText(MainActivity.this, "Selected: " + radioButton.getText(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        // Spinner
+        spinner = findViewById(R.id.spinner);
+
+        // option for the spinner (1. Data source)
+        String[] courses = {"C++", "Java", "Kotlin", "Data Structures"};
+
+        // 2. Adapter
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, courses);
+
+
+        ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // 3. Connect our adapter to the spinner
+        spinner.setAdapter(ad);
+
+        // Handle events for the spinners items
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                // selected option
+                Toast.makeText(MainActivity.this, "You Select: " + courses[i], Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
