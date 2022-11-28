@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox box1, box2;
     RadioGroup radioGroup;
     Spinner spinner;
+    TimePicker timePicker;
     Button btn;
 
     @Override
@@ -72,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        // Time Picker
+        timePicker = findViewById(R.id.timePicker);
+        timePicker.setIs24HourView(true); // display time in 24hrs format
+
+
         // Radio button
  /*       radioButton1 = findViewById(R.id.radioButton);
         radioButton2 = findViewById(R.id.radioButton2);
@@ -98,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // getting selected time
+                String currentTime = "Time: " + timePicker.getCurrentHour() + " : " + timePicker.getCurrentMinute();
+
+                Toast.makeText(getApplicationContext(), String.format("%s", currentTime), Toast.LENGTH_SHORT).show();
 
                 if(!box1.isChecked() && !box2.isChecked()) {
                     Toast.makeText(MainActivity.this, "Please select a topping", Toast.LENGTH_SHORT).show();
