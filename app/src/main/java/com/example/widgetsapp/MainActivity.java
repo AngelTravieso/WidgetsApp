@@ -1,6 +1,7 @@
 package com.example.widgetsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     Spinner spinner;
     TimePicker timePicker;
+    Button btn2;
     Button btn;
 
     @Override
@@ -76,8 +78,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Time Picker
-        timePicker = findViewById(R.id.timePicker);
-        timePicker.setIs24HourView(true); // display time in 24hrs format
+        /*timePicker = findViewById(R.id.timePicker);
+        timePicker.setIs24HourView(true); // display time in 24hrs format*/
+
+        btn2 = findViewById(R.id.button2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Display the time picker
+                DialogFragment timePickerFrag = new TimePickerFragment();
+
+                timePickerFrag.show(getSupportFragmentManager(), "Pick Time:");
+            }
+        });
+
 
 
         // Radio button
